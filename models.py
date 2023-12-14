@@ -16,5 +16,3 @@ class User(db.Model):
     def __repr__(self):
         return "User: {}".format(self.name)
     
-    def verify_password(self, password):
-         return check_password_hash(self.password, password)
