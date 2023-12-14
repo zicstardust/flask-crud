@@ -1,6 +1,5 @@
-from flask import Blueprint, render_template, request
-from models import User
-from models import db
+from flask import Blueprint, render_template, request, redirect
+from models import User, db
 
 bp_users = Blueprint("users", __name__, template_folder="templates")
 
@@ -19,4 +18,9 @@ def create():
     db.session.add(user)
     db.session.commit()
 
-    return 'create user!'
+    return redirect('/recovery')
+
+@bp_users.route('/recovery')
+def recovery():
+    users = User.query.all()
+    return render_template('users_recovery.html', users=users)
