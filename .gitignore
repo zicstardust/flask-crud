@@ -1,6 +1,5 @@
-venv/
-.vscode/
+/venv/
 __pycache__/
-.flaskenv
-migrations/
-db.sqlite
+/.flaskenv
+/migrations/
+/instance/
