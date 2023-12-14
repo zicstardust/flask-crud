@@ -2,7 +2,9 @@
     <body>
         <ul>
             {% for i in users %}
-                <li>{{ i.name }}</li>
+                <li>{{ i.name }} - 
+                    <a href="/users/update/{{i.id}}">editar</a>
+                </li>
             {% endfor %}
         </ul>
     </body>

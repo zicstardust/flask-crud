@@ -24,3 +24,24 @@ def create():
 def recovery():
     users = User.query.all()
     return render_template('users_recovery.html', users=users)
+
+@bp_users.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    user = User.query.get(id)
+    if request.method == 'GET':
+        return render_template('users_update.html', user=user)
+
+    name = request.form.get('name')
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    user.name = name
+    user.email = email
+
+    if password != '':
+        user.password = password
+    
+    db.session.add(user)
+    db.session.commit()
+
+    return redirect('/users/recovery')
