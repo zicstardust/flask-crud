@@ -18,7 +18,7 @@ def create():
     db.session.add(user)
     db.session.commit()
 
-    return redirect('/recovery')
+    return redirect('/users/recovery')
 
 @bp_users.route('/recovery')
 def recovery():
