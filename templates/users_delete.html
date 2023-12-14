@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <form method="post" action="/users/delete/{{user.id}}">
+            Confirm delete {{ user.name }}:
+            <input type="submit" value="Yes"><br>
+            <a href="/users/recovery">No</a>
+        </form>
+    </body>
+
+</html>

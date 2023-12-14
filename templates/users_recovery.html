@@ -3,7 +3,8 @@
         <ul>
             {% for i in users %}
                 <li>{{ i.name }} - 
-                    <a href="/users/update/{{i.id}}">editar</a>
+                    <a href="/users/update/{{i.id}}">edit</a>
+                    <a href="/users/delete/{{i.id}}">delete</a>
                 </li>
             {% endfor %}
         </ul>

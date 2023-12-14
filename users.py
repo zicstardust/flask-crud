@@ -45,3 +45,14 @@ def update(id):
     db.session.commit()
 
     return redirect('/users/recovery')
+
+@bp_users.route('/delete/<int:id>', methods=['GET', 'POST'])
+def delete(id):
+    user = User.query.get(id)
+    if request.method == 'GET':
+        return render_template('users_delete.html', user=user)
+    
+    db.session.delete(user)
+    db.session.commit()
+
+    return redirect('/users/recovery')
